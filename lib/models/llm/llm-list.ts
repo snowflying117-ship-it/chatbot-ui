@@ -1,5 +1,6 @@
 import { LLM } from "@/types"
 import { ANTHROPIC_LLM_LIST } from "./anthropic-llm-list"
+import { DEEPSEEK_LLM_LIST } from "./deepseek-llm-list"
 import { GOOGLE_LLM_LIST } from "./google-llm-list"
 import { MISTRAL_LLM_LIST } from "./mistral-llm-list"
 import { GROQ_LLM_LIST } from "./groq-llm-list"
@@ -12,7 +13,8 @@ export const LLM_LIST: LLM[] = [
   ...MISTRAL_LLM_LIST,
   ...GROQ_LLM_LIST,
   ...PERPLEXITY_LLM_LIST,
-  ...ANTHROPIC_LLM_LIST
+  ...ANTHROPIC_LLM_LIST,
+  ...DEEPSEEK_LLM_LIST
 ]
 
 export const LLM_LIST_MAP: Record<string, LLM[]> = {
@@ -22,5 +24,6 @@ export const LLM_LIST_MAP: Record<string, LLM[]> = {
   mistral: MISTRAL_LLM_LIST,
   groq: GROQ_LLM_LIST,
   perplexity: PERPLEXITY_LLM_LIST,
-  anthropic: ANTHROPIC_LLM_LIST
+  anthropic: ANTHROPIC_LLM_LIST,
+  deepseek: DEEPSEEK_LLM_LIST
 }
