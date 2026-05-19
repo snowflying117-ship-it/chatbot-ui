@@ -4,7 +4,18 @@ const DEEPSEEK_PLATFORM_LINK = "https://platform.deepseek.com/"
 
 // DeepSeek Models (UPDATED 05/19/26) -----------------------------
 
-// DeepSeek R1 (UPDATED 01/20/25)
+// DeepSeek R2 — Latest reasoning model (2026)
+const DEEPSEEK_R2: LLM = {
+  modelId: "deepseek-r2",
+  modelName: "DeepSeek R2",
+  provider: "deepseek",
+  hostedId: "deepseek-r2",
+  platformLink: DEEPSEEK_PLATFORM_LINK,
+  imageInput: false,
+  pricing: { currency: "USD", unit: "1M tokens", inputCost: 0.55, outputCost: 2.19 }
+}
+
+// DeepSeek R1 — Reasoning
 const DEEPSEEK_R1: LLM = {
   modelId: "deepseek-reasoner",
   modelName: "DeepSeek R1",
@@ -12,15 +23,10 @@ const DEEPSEEK_R1: LLM = {
   hostedId: "deepseek-reasoner",
   platformLink: DEEPSEEK_PLATFORM_LINK,
   imageInput: false,
-  pricing: {
-    currency: "USD",
-    unit: "1M tokens",
-    inputCost: 0.55,
-    outputCost: 2.19
-  }
+  pricing: { currency: "USD", unit: "1M tokens", inputCost: 0.55, outputCost: 2.19 }
 }
 
-// DeepSeek V3 (UPDATED 12/26/24)
+// DeepSeek V3 — General chat
 const DEEPSEEK_V3: LLM = {
   modelId: "deepseek-chat",
   modelName: "DeepSeek V3",
@@ -28,15 +34,11 @@ const DEEPSEEK_V3: LLM = {
   hostedId: "deepseek-chat",
   platformLink: DEEPSEEK_PLATFORM_LINK,
   imageInput: false,
-  pricing: {
-    currency: "USD",
-    unit: "1M tokens",
-    inputCost: 0.27,
-    outputCost: 1.1
-  }
+  pricing: { currency: "USD", unit: "1M tokens", inputCost: 0.27, outputCost: 1.1 }
 }
 
 export const DEEPSEEK_LLM_LIST: LLM[] = [
+  DEEPSEEK_R2,
   DEEPSEEK_R1,
   DEEPSEEK_V3
 ]

@@ -19,22 +19,41 @@ export async function POST(request: Request) {
 
     checkApiKey(profile.openai_api_key, "OpenAI")
 
+    // Support custom base URL (for API proxies / 中转站)
+    // Priority: OPENAI_BASE_URL env > profile setting > default
+    const baseURL =
+      process.env.OPENAI_BASE_URL ||
+      process.env.OPENAI_API_BASE ||
+      "https://api.openai.com/v1"
+
     const openai = new OpenAI({
       apiKey: profile.openai_api_key || "",
-      organization: profile.openai_organization_id
+      organization: profile.openai_organization_id,
+      baseURL: baseURL
     })
 
-    const response = await openai.chat.completions.create({
+    // Build request params
+    const params: any = {
       model: chatSettings.model as ChatCompletionCreateParamsBase["model"],
       messages: messages as ChatCompletionCreateParamsBase["messages"],
       temperature: chatSettings.temperature,
-      max_tokens:
-        chatSettings.model === "gpt-4-vision-preview" ||
-        chatSettings.model === "gpt-4o"
-          ? 4096
-          : null, // TODO: Fix
       stream: true
-    })
+    }
+
+    // Set max_tokens based on model
+    const modelId = chatSettings.model
+    if (
+      modelId.includes("vision") ||
+      modelId === "gpt-4o" ||
+      modelId.startsWith("gpt-5") ||
+      modelId.startsWith("gpt-4.1") ||
+      modelId.startsWith("claude") ||
+      modelId.startsWith("gemini")
+    ) {
+      params.max_tokens = 4096
+    }
+
+    const response = await openai.chat.completions.create(params)
 
     const stream = OpenAIStream(response)
 

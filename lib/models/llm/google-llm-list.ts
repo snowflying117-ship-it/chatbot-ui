@@ -4,7 +4,7 @@ const GOOGLE_PLATORM_LINK = "https://ai.google.dev/"
 
 // Google Models (UPDATED 05/19/26) -----------------------------
 
-// Gemini 2.5 Pro (UPDATED 03/25/25)
+// Gemini 2.5 Pro — Top reasoning
 const GEMINI_2_5_PRO: LLM = {
   modelId: "gemini-2.5-pro-preview-05-06",
   modelName: "Gemini 2.5 Pro",
@@ -14,7 +14,7 @@ const GEMINI_2_5_PRO: LLM = {
   imageInput: true
 }
 
-// Gemini 2.5 Flash (UPDATED 04/17/25)
+// Gemini 2.5 Flash — Fast & capable
 const GEMINI_2_5_FLASH: LLM = {
   modelId: "gemini-2.5-flash-preview-04-17",
   modelName: "Gemini 2.5 Flash",
@@ -24,7 +24,7 @@ const GEMINI_2_5_FLASH: LLM = {
   imageInput: true
 }
 
-// Gemini 2.0 Flash (UPDATED 02/05/25)
+// Gemini 2.0 Flash
 const GEMINI_2_0_FLASH: LLM = {
   modelId: "gemini-2.0-flash",
   modelName: "Gemini 2.0 Flash",
@@ -34,20 +34,20 @@ const GEMINI_2_0_FLASH: LLM = {
   imageInput: true
 }
 
-// Gemini 1.5 Pro (UPDATED 05/28/24)
+// Gemini 1.5 Pro (legacy, still available)
 const GEMINI_1_5_PRO: LLM = {
   modelId: "gemini-1.5-pro-latest",
-  modelName: "Gemini 1.5 Pro",
+  modelName: "Gemini 1.5 Pro (Legacy)",
   provider: "google",
   hostedId: "gemini-1.5-pro-latest",
   platformLink: GOOGLE_PLATORM_LINK,
   imageInput: true
 }
 
-// Gemini 1.5 Flash (UPDATED 05/28/24)
+// Gemini 1.5 Flash (legacy)
 const GEMINI_1_5_FLASH: LLM = {
   modelId: "gemini-1.5-flash",
-  modelName: "Gemini 1.5 Flash",
+  modelName: "Gemini 1.5 Flash (Legacy)",
   provider: "google",
   hostedId: "gemini-1.5-flash",
   platformLink: GOOGLE_PLATORM_LINK,
